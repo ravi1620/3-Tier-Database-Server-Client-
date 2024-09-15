@@ -31,13 +31,10 @@ const connectToMDB = async () => {
 app.get("/getPlayers", async (req, res) => {
   try {
     const players = (await Player.find().and([{age:38}]));
-    if (players.length === 0) {
-      console.log("No players found");
-    }
     res.json(players);
   } catch (error) {
     console.error("Error fetching players", error);
-    res.status(500).json({ message: "Error fetching players" });
+   
   }
 });
 
